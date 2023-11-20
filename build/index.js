@@ -57,29 +57,43 @@ app.get('/', function (req, res) {
 //http://localhost:5000/home
 app.post('/home', /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(req, res) {
-    var _req$body, name, kinhDo, viDo, status, data;
+    var _req$body, name, kinhDo, viDo, doAm, luongMua, satLo, status, data, sum, result;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          try {
-            _req$body = req.body, name = _req$body.name, kinhDo = _req$body.kinhDo, viDo = _req$body.viDo;
-            status = 1;
-            data = new Home({
-              name: name,
-              kinhDo: kinhDo,
-              viDo: viDo,
-              status: status
-            });
-            data.save(data);
-            res.json(data);
-          } catch (error) {
-            res.json(error);
-          }
-        case 1:
+          _context2.prev = 0;
+          _req$body = req.body, name = _req$body.name, kinhDo = _req$body.kinhDo, viDo = _req$body.viDo, doAm = _req$body.doAm, luongMua = _req$body.luongMua, satLo = _req$body.satLo;
+          status = 1;
+          data = new Home({
+            name: name,
+            kinhDo: kinhDo,
+            viDo: viDo,
+            doAm: doAm,
+            luongMua: luongMua,
+            satLo: satLo,
+            status: status
+          });
+          data.save(data);
+          _context2.next = 7;
+          return Home.countDocuments();
+        case 7:
+          sum = _context2.sent;
+          result = {
+            data: data,
+            sum: sum
+          };
+          res.json(result);
+          _context2.next = 15;
+          break;
+        case 12:
+          _context2.prev = 12;
+          _context2.t0 = _context2["catch"](0);
+          res.json(_context2.t0);
+        case 15:
         case "end":
           return _context2.stop();
       }
-    }, _callee2);
+    }, _callee2, null, [[0, 12]]);
   }));
   return function (_x, _x2) {
     return _ref2.apply(this, arguments);

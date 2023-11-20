@@ -14,6 +14,18 @@ var Schema = new mongoose.Schema({
     type: String,
     required: true
   },
+  doAm: {
+    type: String,
+    required: true
+  },
+  luongMua: {
+    type: String,
+    required: true
+  },
+  satLo: {
+    type: String,
+    required: true
+  },
   status: {
     type: String,
     required: true
