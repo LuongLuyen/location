@@ -57,12 +57,12 @@ app.get('/', function (req, res) {
 //http://localhost:5000/home
 app.post('/home', /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(req, res) {
-    var _req$body, name, kinhDo, viDo, doAm, luongMua, satLo, status, data, sum, result;
+    var _req$body, name, kinhDo, viDo, doAm, luongMua, satLo, thoiGianMua, doNghieng, status, data, sum, result;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
           _context2.prev = 0;
-          _req$body = req.body, name = _req$body.name, kinhDo = _req$body.kinhDo, viDo = _req$body.viDo, doAm = _req$body.doAm, luongMua = _req$body.luongMua, satLo = _req$body.satLo;
+          _req$body = req.body, name = _req$body.name, kinhDo = _req$body.kinhDo, viDo = _req$body.viDo, doAm = _req$body.doAm, luongMua = _req$body.luongMua, satLo = _req$body.satLo, thoiGianMua = _req$body.thoiGianMua, doNghieng = _req$body.doNghieng;
           status = 1;
           data = new Home({
             name: name,
@@ -71,7 +71,9 @@ app.post('/home', /*#__PURE__*/function () {
             doAm: doAm,
             luongMua: luongMua,
             satLo: satLo,
-            status: status
+            status: status,
+            thoiGianMua: thoiGianMua,
+            doNghieng: doNghieng
           });
           data.save(data);
           _context2.next = 7;

@@ -29,6 +29,14 @@ var Schema = new mongoose.Schema({
   status: {
     type: String,
     required: true
+  },
+  thoiGianMua: {
+    type: String,
+    required: true
+  },
+  doNghieng: {
+    type: String,
+    required: true
   }
 }, {
   timestamps: true
