@@ -129,66 +129,98 @@ app.get('/home', /*#__PURE__*/function () {
     return _ref3.apply(this, arguments);
   };
 }());
-app.put('/home/:id', /*#__PURE__*/function () {
+app.get('/name', /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(req, res) {
+    var listName, data;
     return _regeneratorRuntime().wrap(function _callee4$(_context4) {
       while (1) switch (_context4.prev = _context4.next) {
         case 0:
           _context4.prev = 0;
-          _context4.next = 3;
-          return Home.updateOne({
-            _id: req.params.id
-          }, req.body);
-        case 3:
-          res.json(req.body);
-          _context4.next = 9;
+          listName = [];
+          _context4.next = 4;
+          return Home.find();
+        case 4:
+          data = _context4.sent;
+          data.map(function (x) {
+            listName.push(x.name);
+          });
+          res.json(listName);
+          _context4.next = 12;
           break;
-        case 6:
-          _context4.prev = 6;
+        case 9:
+          _context4.prev = 9;
           _context4.t0 = _context4["catch"](0);
           res.json(_context4.t0);
-        case 9:
+        case 12:
         case "end":
           return _context4.stop();
       }
-    }, _callee4, null, [[0, 6]]);
+    }, _callee4, null, [[0, 9]]);
   }));
   return function (_x5, _x6) {
     return _ref4.apply(this, arguments);
   };
 }());
-app["delete"]('/home/:id', /*#__PURE__*/function () {
+app.put('/home/:id', /*#__PURE__*/function () {
   var _ref5 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(req, res) {
-    var id, data;
     return _regeneratorRuntime().wrap(function _callee5$(_context5) {
       while (1) switch (_context5.prev = _context5.next) {
         case 0:
           _context5.prev = 0;
+          _context5.next = 3;
+          return Home.updateOne({
+            _id: req.params.id
+          }, req.body);
+        case 3:
+          res.json(req.body);
+          _context5.next = 9;
+          break;
+        case 6:
+          _context5.prev = 6;
+          _context5.t0 = _context5["catch"](0);
+          res.json(_context5.t0);
+        case 9:
+        case "end":
+          return _context5.stop();
+      }
+    }, _callee5, null, [[0, 6]]);
+  }));
+  return function (_x7, _x8) {
+    return _ref5.apply(this, arguments);
+  };
+}());
+app["delete"]('/home/:id', /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(req, res) {
+    var id, data;
+    return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+      while (1) switch (_context6.prev = _context6.next) {
+        case 0:
+          _context6.prev = 0;
           id = req.params.id;
-          _context5.next = 4;
+          _context6.next = 4;
           return Home.deleteOne({
             _id: id
           });
         case 4:
-          _context5.next = 6;
+          _context6.next = 6;
           return Home.find();
         case 6:
-          data = _context5.sent;
+          data = _context6.sent;
           res.json(data);
-          _context5.next = 13;
+          _context6.next = 13;
           break;
         case 10:
-          _context5.prev = 10;
-          _context5.t0 = _context5["catch"](0);
-          res.json(_context5.t0);
+          _context6.prev = 10;
+          _context6.t0 = _context6["catch"](0);
+          res.json(_context6.t0);
         case 13:
         case "end":
-          return _context5.stop();
+          return _context6.stop();
       }
-    }, _callee5, null, [[0, 10]]);
+    }, _callee6, null, [[0, 10]]);
   }));
-  return function (_x7, _x8) {
-    return _ref5.apply(this, arguments);
+  return function (_x9, _x10) {
+    return _ref6.apply(this, arguments);
   };
 }());
 app.listen(PORT, function () {
